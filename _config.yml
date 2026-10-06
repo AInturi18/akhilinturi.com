@@ -1,0 +1,13 @@
+title: Akhil Inturi
+description: Data Center Connectivity Engineer in Irving, TX. Notes on hyperscale fiber, networking, career, and life.
+url: https://akhilinturi.com
+author: Akhil Inturi
+permalink: /blog/:year/:month/:title/
+markdown: kramdown
+kramdown:
+  input: GFM
+plugins:
+  - jekyll-feed
+exclude:
+  - POSTING.md
+  - README.md

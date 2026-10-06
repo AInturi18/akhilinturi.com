@@ -1,0 +1,42 @@
+---
+layout: default
+title: Blog
+permalink: /blog/
+description: Notes on hyperscale data centers, fiber, networking, certifications, career, and life from Akhil Inturi.
+---
+<section style="border-top:0;padding-top:64px">
+  <div class="wrap">
+    <div class="label">// blog</div>
+    <h2>Notes, lessons &amp; updates</h2>
+    <p style="color:var(--muted);max-width:620px;margin:-14px 0 28px">Field lessons from hyperscale data centers, networking study notes, career updates, and whatever else I'm working on.</p>
+
+    {% assign cats = site.posts | map: "category" | compact | uniq | sort %}
+    <div class="filters" id="filters">
+      <button type="button" data-cat="all" aria-pressed="true">All</button>
+      {% for c in cats %}<button type="button" data-cat="{{ c }}" aria-pressed="false">{{ c }}</button>
+      {% endfor %}
+    </div>
+
+    <div class="posts" id="posts">
+      {% for post in site.posts %}
+      <a class="post-item" href="{{ post.url }}" data-cat="{{ post.category }}">
+        <div class="pmeta"><span>{{ post.date | date: "%b %-d, %Y" }}</span>{% if post.category %}<span class="cat">{{ post.category }}</span>{% endif %}</div>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.description | default: post.excerpt | strip_html | truncate: 180 }}</p>
+      </a>
+      {% endfor %}
+    </div>
+    {% if site.posts.size == 0 %}<p style="color:var(--muted)">First post coming soon.</p>{% endif %}
+  </div>
+</section>
+<script>
+(function(){
+  var btns=document.querySelectorAll('#filters button'),items=document.querySelectorAll('#posts .post-item');
+  function apply(cat){
+    btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.cat===cat?'true':'false')});
+    items.forEach(function(i){i.hidden=!(cat==='all'||i.dataset.cat===cat)});
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.cat);history.replaceState(null,'',b.dataset.cat==='all'?'#':'#'+encodeURIComponent(b.dataset.cat))})});
+  var h=decodeURIComponent(location.hash.slice(1));if(h)apply(h);
+})();
+</script>
