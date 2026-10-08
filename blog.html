@@ -52,9 +52,10 @@ description: Notes on hyperscale data centers, fiber, networking, certifications
     </div>
 
     <div class="posts" id="posts">
-      {% for post in site.posts %}
+      {% assign pinned = site.posts | where: "pinned", true %}{% assign rest = site.posts | where_exp: "p", "p.pinned != true" %}{% assign shown = pinned | concat: rest %}
+      {% for post in shown %}
       <a class="post-item" href="{{ post.url }}" data-cat="{{ post.category }}">
-        <div class="pmeta"><span>{{ post.date | date: "%b %-d, %Y" }}</span>{% if post.category %}<span class="cat">{{ post.category }}</span>{% endif %}</div>
+        <div class="pmeta"><span>{{ post.date | date: "%b %-d, %Y" }}</span>{% if post.pinned %}<span class="cat" style="color:var(--accent)">📌 Pinned</span>{% endif %}{% if post.category %}<span class="cat">{{ post.category }}</span>{% endif %}</div>
         <h3>{{ post.title }}</h3>
         <p>{{ post.description | default: post.excerpt | strip_html | truncate: 180 }}</p>
       </a>

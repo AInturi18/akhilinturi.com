@@ -3,6 +3,7 @@ layout: post
 title: "I graduated: Master's in Technology Management"
 date: 2025-01-31 09:00:00 -0600
 category: Life
+pinned: true
 description: Officially graduated from Lindsey Wilson College with my Master's. Originally shared on LinkedIn.
 ---
 
