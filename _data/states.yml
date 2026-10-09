@@ -12,3 +12,12 @@ not_visited:
   - New Jersey
   - Delaware
   - Wisconsin
+
+# India map: list states visited.
+india_visited:
+  - Delhi
+  - Maharashtra
+  - Andhra Pradesh
+  - Telangana
+  - Karnataka
+  - Tamil Nadu

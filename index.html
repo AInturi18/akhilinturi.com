@@ -87,10 +87,10 @@ layout: none
 
 <section id="places" class="th-sky">
   <div class="wrap">
-    <div class="center rv"><h2 class="h2">Places.</h2><p class="sub">{{ 50 | minus: site.data.states.not_visited.size }} of 50 states, and counting.</p></div>
+    <div class="center rv"><h2 class="h2">Places.</h2><p class="sub">{{ 50 | minus: site.data.states.not_visited.size }} of 50 US states. {{ site.data.states.india_visited.size }} states in India. Still counting.</p></div>
     <div id="map" role="region" aria-label="Map of places"></div>
-    <div class="places"><button type="button" data-us>🇺🇸 USA</button>{% for p in site.data.places %}<button type="button" data-i="{{ forloop.index0 }}">{{ p.name }}</button>{% endfor %}</div>
-    <p class="center" style="margin-top:14px;font-size:.85rem;color:#2b4a6f"><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#0071e3;vertical-align:-1px"></span> Visited &nbsp; <span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#d2d2d7;vertical-align:-1px"></span> Not yet</p>
+    <div class="places"><button type="button" data-us>🇺🇸 USA</button><button type="button" data-in>🇮🇳 India</button>{% for p in site.data.places %}<button type="button" data-i="{{ forloop.index0 }}">{{ p.name }}</button>{% endfor %}</div>
+    <p class="center" style="margin-top:14px;font-size:.85rem;color:#2b4a6f"><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#0071e3;vertical-align:-1px"></span> Visited (US) &nbsp; <span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#ff9f0a;vertical-align:-1px"></span> Visited (India) &nbsp; <span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#d2d2d7;vertical-align:-1px"></span> Not yet</p>
   </div>
 </section>
 
@@ -191,7 +191,7 @@ d.querySelector('.m-close').addEventListener('click',function(){d.close()});d.ad
 </script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-(function(){if(!window.L)return;var P={{ site.data.places | jsonify }},NV={{ site.data.states.not_visited | jsonify }};
+(function(){if(!window.L)return;var P={{ site.data.places | jsonify }},NV={{ site.data.states.not_visited | jsonify }},IV={{ site.data.states.india_visited | jsonify }},IN=[[6.5,68],[35.5,97.5]];
 var m=L.map('map',{scrollWheelZoom:false,worldCopyJump:true});
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',maxZoom:19,opacity:.55}).addTo(m);
 var US=[[24.5,-125],[49.5,-66.5]];m.fitBounds(US);
@@ -202,10 +202,16 @@ fetch('/data/us-states.json').then(function(r){return r.json()}).then(function(g
       l.on('mouseover',function(){l.setStyle({fillOpacity:.85})});l.on('mouseout',function(){l.setStyle({fillOpacity:v?.55:.6})})}}).addTo(m);
   mk.forEach(function(x){x.bringToFront&&x.bringToFront()});
 });
+fetch('/data/india-states.json').then(function(r){return r.json()}).then(function(g){
+  L.geoJSON(g,{style:function(f){var v=IV.indexOf(f.properties.name)>=0;return{color:'#fff',weight:1,fillColor:v?'#ff9f0a':'#d2d2d7',fillOpacity:v?.6:.55}},
+    onEachFeature:function(f,l){var v=IV.indexOf(f.properties.name)>=0;l.bindTooltip(f.properties.name+(v?' ✓':' · not yet'),{sticky:true});
+      l.on('mouseover',function(){l.setStyle({fillOpacity:.85})});l.on('mouseout',function(){l.setStyle({fillOpacity:v?.6:.55})})}}).addTo(m);
+});
 var ic=L.divIcon({className:'',html:'<div style="width:18px;height:18px;border-radius:50%;background:#ff9f0a;border:3px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.35)"></div>',iconSize:[18,18],iconAnchor:[9,9]});
 var mk=P.map(function(p){return L.marker([p.lat,p.lng],{icon:ic,zIndexOffset:1000}).addTo(m).bindPopup('<b>'+p.name+'</b>'+p.note)});
 document.querySelectorAll('.places button').forEach(function(b){b.addEventListener('click',function(){
   if(b.hasAttribute('data-us')){m.flyToBounds(US,{duration:1.2});return}
+  if(b.hasAttribute('data-in')){m.flyToBounds(IN,{duration:1.2});return}
   var i=+b.dataset.i;m.flyTo([P[i].lat,P[i].lng],7,{duration:1.2});mk[i].openPopup()})});
 })();
 </script>
