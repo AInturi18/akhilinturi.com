@@ -4,8 +4,22 @@
 - src: /images/graduation-1.jpg
   caption: Crossing the stage. Master's done.
   size: big
+- src: /images/moments/chicago.jpg
+  caption: Chicago
+  size: tall
+- src: /images/moments/winery.jpg
+  caption: Slow afternoon at a winery
+  size: tall
+- src: /images/moments/celebration.jpg
+  caption: Celebrations
+  size: tall
+- src: /images/moments/golden-hour.jpg
+  caption: Golden hour
+  size: tall
 - src: /images/graduation-2.jpg
   caption: Graduation day at Lindsey Wilson
   size: tall
+- src: /images/moments/sunny-day.jpg
+  caption: Sunny days
 - src: /photo.jpg
   caption: Hi, that's me
