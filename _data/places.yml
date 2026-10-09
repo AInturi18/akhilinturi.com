@@ -1,0 +1,13 @@
+# Pins on the "Places" map. Find lat/lng by right-clicking a spot in Google Maps.
+- name: Irving, Texas
+  note: Home base
+  lat: 32.814
+  lng: -96.949
+- name: Columbia, Kentucky
+  note: Master's at Lindsey Wilson, 2024
+  lat: 37.103
+  lng: -85.306
+- name: Vellore, India
+  note: B.Tech at VIT, 2022
+  lat: 12.969
+  lng: 79.156

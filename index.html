@@ -6,7 +6,7 @@ layout: none
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Akhil Inturi · Data Center Connectivity Engineer</title>
+<title>Akhil Inturi</title>
 <meta name="description" content="{{ page.description | default: page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
 <meta property="og:title" content="{{ page.title | default: site.title }}">
 <meta property="og:description" content="{{ page.description | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
@@ -17,6 +17,7 @@ layout: none
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="/style.css">
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -27,11 +28,11 @@ layout: none
     <a class="logo" href="/"><img src="/photo.jpg" alt="" width="26" height="26">Akhil Inturi</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="links">Menu</button>
     <div class="links" id="links">
-      <a href="/#work">Work</a>
-      <a href="/#projects">Projects</a>
-      <a href="/#education">Education</a>
+      <a href="/#about">About</a>
+      <a href="/#moments">Moments</a>
+      <a href="/#places">Places</a>
+      <a href="/work/">Work</a>
       <a href="/blog/">Blog</a>
-      <a href="/Akhil_Inturi_Resume.pdf" target="_blank" rel="noopener">Résumé</a>
       <a href="/#contact">Contact</a>
     </div>
   </div>
@@ -41,116 +42,85 @@ layout: none
 <section class="hero">
   <div class="wrap">
     <div class="status">Stay kind. Work hard.</div>
-    <h1 class="headline">Akhil Inturi.</h1>
-    <p class="sub">I connect hyperscale data centers.</p>
+    <h1 class="headline">Hi, I'm Akhil.</h1>
+    <p class="sub">Engineer. Builder. Always learning.</p>
     <div class="ctas" style="justify-content:center">
-      <a class="pill" href="/Akhil_Inturi_Resume.pdf" target="_blank" rel="noopener">Résumé</a>
-      <a class="more" href="#contact">Let's talk</a>
+      <a class="pill" href="#about">My story</a>
+      <a class="more" href="/work/">See my work</a>
     </div>
   </div>
   <div class="portrait"><img src="/images/graduation-2.jpg" alt="Akhil Inturi" width="800" height="1066"></div>
 </section>
 
-<section class="dark tight">
-  <div class="wrap nums">
-    <div class="num rv"><b>150+</b><span>Meta sites delivered</span></div>
-    <div class="num rv"><b>876</b><span>Endpoints per site</span></div>
-    <div class="num rv"><b>0</b><span>Defects at turnover</span></div>
-    <div class="num rv"><b>3.94</b><span>Master's GPA</span></div>
-  </div>
-</section>
-
-<section id="work">
-  <div class="wrap">
-    <div class="center rv"><h2 class="h2">Where I've worked.</h2><p class="sub">Tap a tile to learn more.</p></div>
-    <div class="tiles">
-      <button class="tile wide rv" type="button" data-modal="m-verveba" aria-label="Meta hyperscale deployments.: learn more">
-        <img src="/images/covers/racks.svg" alt="" loading="lazy">
-        <div class="t-top"><div class="t-kicker">Verveba · 2023 – now</div><div class="t-title">Meta hyperscale deployments.</div></div>
-        <div class="t-reveal">150+ sites. 876 endpoints each. Zero-defect turnover.</div>
-        <span class="t-plus" aria-hidden="true">+</span>
-      </button>
-      <button class="tile rv" type="button" data-modal="m-aptean" aria-label="Test automation.: learn more">
-        <img src="/images/covers/tests.svg" alt="" loading="lazy">
-        <div class="t-top"><div class="t-kicker">Aptean · 2021 – 2023</div><div class="t-title">Test automation.</div></div>
-        <div class="t-reveal">60% less manual regression. Coverage 72% → 89%.</div>
-        <span class="t-plus" aria-hidden="true">+</span>
-      </button>
-      <button class="tile rv" type="button" data-modal="m-testing" aria-label="Every link, measured.: learn more">
-        <img src="/images/covers/otdr.svg" alt="" loading="lazy">
-        <div class="t-top"><div class="t-kicker">Field testing</div><div class="t-title">Every link, measured.</div></div>
-        <div class="t-reveal">OTDR, light meters, VFLs. Tested against loss budgets.</div>
-        <span class="t-plus" aria-hidden="true">+</span>
-      </button>
-    </div>
-  </div>
-</section>
-
-<section id="projects" class="alt">
-  <div class="wrap">
-    <div class="center rv"><h2 class="h2">Things I've built.</h2></div>
-    <div class="tiles three">
-      <button class="tile rv" type="button" data-modal="m-monitor" aria-label="Fiber Link Health Monitor.: learn more">
-        <img src="/images/covers/dashboard.svg" alt="" loading="lazy">
-        <div class="t-top"><div class="t-kicker">Python · Flask · React</div><div class="t-title">Fiber Link Health Monitor.</div></div>
-        <div class="t-reveal">OTDR exports in. Pass/fail dashboard out.</div>
-        <span class="t-plus" aria-hidden="true">+</span>
-      </button>
-      <button class="tile rv" type="button" data-modal="m-mops" aria-label="MOP &amp; SOP library.: learn more">
-        <img src="/images/covers/docs.svg" alt="" loading="lazy">
-        <div class="t-top"><div class="t-kicker">Standards</div><div class="t-title">MOP &amp; SOP library.</div></div>
-        <div class="t-reveal">One way to install, test, and cut over. Every site.</div>
-        <span class="t-plus" aria-hidden="true">+</span>
-      </button>
-      <button class="tile rv" type="button" data-modal="m-rollout" aria-label="Site to sign-off.: learn more">
-        <img src="/images/covers/fiber.svg" alt="" loading="lazy">
-        <div class="t-top"><div class="t-kicker">Deployment</div><div class="t-title">Site to sign-off.</div></div>
-        <div class="t-reveal">BOM review to rack commissioning to NOC turnover.</div>
-        <span class="t-plus" aria-hidden="true">+</span>
-      </button>
-    </div>
-  </div>
-</section>
-
-<section class="center">
-  <div class="wrap">
-    <div class="rv"><h2 class="h2">The toolkit.</h2><p class="sub">Hover for details.</p></div>
-    <div class="chips rv">
-      <span class="chip" tabindex="0" data-tip="Singlemode, multimode, MPO12/16, AOC/DAC, copper">Structured cabling</span>
-      <span class="chip" tabindex="0" data-tip="EXFO FTH-5000, FastReporter 3">OTDR</span>
-      <span class="chip" tabindex="0" data-tip="Light meter, VFL, FIP-500 inspection">Fiber testing</span>
-      <span class="chip" tabindex="0" data-tip="Insertion &amp; return loss against budget">Loss budgets</span>
-      <span class="chip" tabindex="0" data-tip="Loopbacks, transceivers, Layer 1 isolation">Troubleshooting</span>
-      <span class="chip" tabindex="0" data-tip="TIA-568, BICSI, NEC">Standards</span>
-      <span class="chip" tabindex="0" data-tip="Routing &amp; switching, VLANs">CCNA</span>
-      <span class="chip" tabindex="0" data-tip="Methods of procedure for installs and cutovers">MOPs / SOPs</span>
-      <span class="chip" tabindex="0" data-tip="Automation and dashboards">Python</span>
-      <span class="chip" tabindex="0" data-tip="Backend data checks">SQL</span>
-      <span class="chip" tabindex="0" data-tip="Flask APIs, React front ends">Flask · React</span>
-      <span class="chip" tabindex="0" data-tip="Cypress and C# test suites">Test automation</span>
-    </div>
-  </div>
-</section>
-
-<section id="education" class="alt">
-  <div class="wrap split">
-    <div class="media rv"><img src="/images/graduation-1.jpg" alt="Akhil crossing the stage at Lindsey Wilson commencement" loading="lazy"></div>
+<section id="about" class="th-peach">
+  <div class="wrap about">
+    <img class="rv" src="/photo.jpg" alt="Akhil Inturi" width="220" height="220">
     <div class="rv">
-      <div class="eyebrow">Education</div>
-      <h2 class="h2">Master's. 3.94 GPA.</h2>
-      <ul class="facts">
-        <li><b>2024</b><span>M.S. Information Technology Management, Lindsey Wilson</span></li>
-        <li><b>2022</b><span>B.Tech Computer Science, VIT</span></li>
-        <li><b>Certs</b><span>CCNA · OSHA 10 · ANSI (in progress)</span></li>
-      </ul>
-      <div class="ctas"><a class="more" href="/blog/2025/01/graduated-masters-lindsey-wilson/">Read the story</a></div>
+      <div class="eyebrow">About me</div>
+      <h2 class="h2">From Vellore to Irving.</h2>
+      <p class="lead">I studied computer science at VIT, earned my master's in Kentucky, and now help build the networks inside hyperscale data centers. Off the clock: style, travel, and learning something new.</p>
+      <div class="path"><span>VIT, India</span><span>Lindsey Wilson, KY</span><span>Irving, TX</span></div>
     </div>
   </div>
 </section>
 
-<section id="blog">
+<section id="now" class="th-mint tight">
   <div class="wrap">
-    <div class="center rv"><h2 class="h2">Latest.</h2><div class="ctas"><a class="more" href="/blog/">All posts</a></div></div>
+    <div class="center rv"><div class="eyebrow">Now</div><h2 class="h2">Right now.</h2></div>
+    <div class="now">
+      {% for n in site.data.now %}<div class="rv"><div class="ic" aria-hidden="true">{{ n.icon }}</div><div class="k">{{ n.label }}</div><div class="v">{{ n.value }}</div></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="moments" class="th-sun">
+  <div class="wrap">
+    <div class="center rv"><h2 class="h2">Moments.</h2><p class="sub">Tap a photo.</p></div>
+    <div class="gallery">
+      {% for p in site.data.moments %}<button class="ph {{ p.size }} rv" type="button" data-src="{{ p.src }}" data-cap="{{ p.caption }}"><img src="{{ p.src }}" alt="{{ p.caption }}" loading="lazy"><span class="cap">{{ p.caption }}</span></button>
+      {% endfor %}
+      <div class="ph add rv">More moments coming soon</div>
+    </div>
+  </div>
+</section>
+
+<section id="places" class="th-sky">
+  <div class="wrap">
+    <div class="center rv"><h2 class="h2">Places.</h2><p class="sub">Where I've lived, studied, and worked.</p></div>
+    <div id="map" role="region" aria-label="Map of places"></div>
+    <div class="places">{% for p in site.data.places %}<button type="button">{{ p.name }}</button>{% endfor %}</div>
+  </div>
+</section>
+
+<section id="loves" class="th-coral">
+  <div class="wrap">
+    <div class="center rv"><h2 class="h2">Things I love.</h2><p class="sub">Hover to see why.</p></div>
+    <div class="loves"><div class="love rv" tabindex="0" style="background:linear-gradient(160deg,#ff9a8b,#ff6a88)"><div class="em" aria-hidden="true">✨</div><b>Style</b><span>Clean fits, good sneakers, and looking sharp.</span></div><div class="love rv" tabindex="0" style="background:linear-gradient(160deg,#4facfe,#00c6fb)"><div class="em" aria-hidden="true">✈️</div><b>Travel</b><span>New cities, new food, a lot of miles.</span></div><div class="love rv" tabindex="0" style="background:linear-gradient(160deg,#43e97b,#20b0a0)"><div class="em" aria-hidden="true">🛠️</div><b>Building things</b><span>Side projects, dashboards, and automating the boring stuff.</span></div><div class="love rv" tabindex="0" style="background:linear-gradient(160deg,#a18cd1,#7f5bd6)"><div class="em" aria-hidden="true">📚</div><b>Learning</b><span>Always working toward the next certification.</span></div></div>
+  </div>
+</section>
+
+<section id="work" class="th-dark">
+  <div class="wrap">
+    <div class="center rv"><div class="eyebrow">Work</div><h2 class="h2">By day, I connect data centers.</h2></div>
+    <div class="nums">
+      <div class="num rv"><b>150+</b><span>Meta sites delivered</span></div>
+      <div class="num rv"><b>876</b><span>Endpoints per site</span></div>
+      <div class="num rv"><b>0</b><span>Defects at turnover</span></div>
+      <div class="num rv"><b>CCNA</b><span>Certified</span></div>
+    </div>
+    <div class="teaser">
+      <a class="rv" href="/work/#experience"><img src="/images/covers/racks.svg" alt="" loading="lazy"><div><b>Experience</b><small>Verveba · Aptean</small></div></a>
+      <a class="rv" href="/work/#projects"><img src="/images/covers/dashboard.svg" alt="" loading="lazy"><div><b>Projects</b><small>Fiber Link Health Monitor and more</small></div></a>
+      <a class="rv" href="/work/#toolkit"><img src="/images/covers/otdr.svg" alt="" loading="lazy"><div><b>Toolkit</b><small>Fiber, testing, networking, code</small></div></a>
+    </div>
+    <div class="ctas" style="justify-content:center;margin-top:36px"><a class="pill" href="/work/">See all work</a><a class="more" href="/Akhil_Inturi_Resume.pdf" target="_blank" rel="noopener">Résumé</a></div>
+  </div>
+</section>
+
+<section id="blog" class="th-lav">
+  <div class="wrap">
+    <div class="center rv"><h2 class="h2">Latest.</h2><p class="sub">Notes from work and life.</p><div class="ctas"><a class="more" href="/blog/">All posts</a></div></div>
     <div class="cards">
       {% assign pinned = site.posts | where: "pinned", true %}{% assign rest = site.posts | where_exp: "p", "p.pinned != true" %}{% assign shown = pinned | concat: rest %}{% assign feature = false %}
       {% for post in shown limit:3 %}
@@ -169,36 +139,16 @@ layout: none
 <section id="contact" class="center">
   <div class="wrap rv">
     <img class="avatar" src="/photo.jpg" alt="Akhil Inturi" width="120" height="120">
-    <h2 class="h2">Let's talk.</h2>
-    <p class="sub">Data center, network, and systems roles.</p>
+    <h2 class="h2">Say hi.</h2>
+    <p class="sub">Always happy to connect.</p>
     <p style="margin-top:26px"><span class="email" id="em">ainturi18@gmail.com</span></p>
     <div class="ctas">
       <button class="pill" id="cp" type="button">Copy email</button>
       <a class="more" href="https://www.linkedin.com/in/akhil-inturi-b5ba2619a/" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="more" href="/Akhil_Inturi_Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+      <a class="more" href="https://github.com/AInturi18" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </section>
-
-<template id="m-verveba"><div class="m-img"><img src="/images/covers/racks.svg" alt=""></div><div class="m-body"><h3 id="m-title">Network Infrastructure Engineer</h3><div class="m-meta">Verveba · Jan 2023 – Present · Meta hyperscale FMS deployments</div><ul>
-<li>Delivered 150+ end-to-end connectivity deployments with zero-defect acceptance at Meta NOC turnover.</li>
-<li>Owned each site from BOM/EDP validation and procurement through rack commissioning and sign-off.</li>
-<li>Validated 876 endpoints per site: singlemode, multimode, MPO, AOC/DAC, and copper.</li>
-<li>Authored MOPs and SOPs aligned with TIA-568, BICSI, and NEC.</li>
-<li>Audited installs and tracked vendor fixes to closure with Meta, Ericsson, and partners.</li>
-<li>Restored failed links through loopbacks and Layer 1 isolation with Meta NOC.</li>
-<li>Supported live refreshes for AI/HPC infrastructure.</li></ul></div></template>
-<template id="m-aptean"><div class="m-img"><img src="/images/covers/tests.svg" alt=""></div><div class="m-body"><h3 id="m-title">Infrastructure &amp; QA Automation Engineer</h3><div class="m-meta">Aptean Technologies · Dec 2021 – Jan 2023 · Remote</div><ul>
-<li>Cut manual regression effort 60% across 5 modules with Cypress and C# suites.</li>
-<li>Raised end-to-end coverage from 72% to 89%.</li>
-<li>95% pre-release defect resolution across 150+ defects, with SQL data checks.</li></ul><div class="tags"><span>Cypress</span><span>C#</span><span>SQL</span></div></div></template>
-<template id="m-testing"><div class="m-img"><img src="/images/covers/otdr.svg" alt=""></div><div class="m-body"><h3 id="m-title">Every link, measured</h3><div class="m-meta">Fiber testing &amp; validation</div><p>A link that lights up isn't the same as a link that passes. Each one is tested and documented against its loss budget before turnover.</p>
-<div class="tags"><span>OTDR (EXFO FTH-5000)</span><span>Light meter</span><span>VFL</span><span>FIP-500</span><span>IL / RL</span><span>FastReporter 3</span></div>
-<div class="ctas"><a class="more" href="/blog/2026/10/lessons-from-150-hyperscale-deployments/">Read: lessons from 150+ deployments</a></div></div></template>
-<template id="m-monitor"><div class="m-img"><img src="/images/covers/dashboard.svg" alt=""></div><div class="m-body"><h3 id="m-title">Fiber Link Health Monitor</h3><div class="m-meta">Python · Flask · SQLite · React.js</div><p>Ingests OTDR exports, classifies each link pass/fail against loss thresholds, and flags failing links and loss trends on a dashboard built for high-density cluster turn-up.</p>
-<div class="ctas"><a class="pill" href="https://github.com/AInturi18/fiber-monitor" target="_blank" rel="noopener">View on GitHub</a><a class="more" href="/blog/2026/10/building-a-fiber-link-health-monitor/">Why I built it</a></div></div></template>
-<template id="m-mops"><div class="m-img"><img src="/images/covers/docs.svg" alt=""></div><div class="m-body"><h3 id="m-title">MOP &amp; SOP library</h3><div class="m-meta">Standards · TIA-568 · BICSI · NEC</div><p>Written procedures for installation, testing, and live-environment cutovers, so every crew on every concurrent site works the same way.</p></div></template>
-<template id="m-rollout"><div class="m-img"><img src="/images/covers/fiber.svg" alt=""></div><div class="m-body"><h3 id="m-title">Site to sign-off</h3><div class="m-meta">End-to-end deployment ownership</div><ul><li>BOM and EDP validation before install</li><li>Weekly materials forecasting and procurement</li><li>Construction coordination and multi-site sequencing</li><li>Rack commissioning and as-built documentation</li><li>Turnover packages and NOC acceptance</li></ul></div></template>
 </main>
 <footer>
   <div class="wrap">
@@ -230,6 +180,23 @@ layout: none
   var map={};nav.querySelectorAll('.links a[href^="/#"]').forEach(function(a){map[a.getAttribute('href').slice(2)]=a});
   if('IntersectionObserver' in window){var so=new IntersectionObserver(function(es){es.forEach(function(e){var a=map[e.target.id];if(a&&e.isIntersecting){for(var k in map)map[k].classList.remove('active');a.classList.add('active')}})},{rootMargin:'-45% 0px -50% 0px'});
   Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el)so.observe(el)})}
+})();
+</script>
+<dialog id="lb" class="lightbox" aria-label="Photo"><button class="m-close" type="button" aria-label="Close">✕</button><img id="lb-img" src="" alt=""><div class="lb-cap" id="lb-cap"></div></dialog>
+<script>
+(function(){var d=document.getElementById('lb'),im=document.getElementById('lb-img'),cp=document.getElementById('lb-cap');
+document.querySelectorAll('.ph[data-src]').forEach(function(b){b.addEventListener('click',function(){im.src=b.dataset.src;im.alt=b.dataset.cap||'';cp.textContent=b.dataset.cap||'';d.showModal?d.showModal():d.setAttribute('open','')})});
+d.querySelector('.m-close').addEventListener('click',function(){d.close()});d.addEventListener('click',function(e){if(e.target===d||e.target===im)d.close()});})();
+</script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function(){if(!window.L)return;var P={{ site.data.places | jsonify }};
+var m=L.map('map',{scrollWheelZoom:false,worldCopyJump:true});
+L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',maxZoom:18}).addTo(m);
+var ic=L.divIcon({className:'',html:'<div style="width:18px;height:18px;border-radius:50%;background:#0071e3;border:3px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.35)"></div>',iconSize:[18,18],iconAnchor:[9,9]});
+var mk=P.map(function(p){return L.marker([p.lat,p.lng],{icon:ic}).addTo(m).bindPopup('<b>'+p.name+'</b>'+p.note)});
+m.fitBounds(L.latLngBounds(P.map(function(p){return[p.lat,p.lng]})).pad(.25));
+document.querySelectorAll('.places button').forEach(function(b,i){b.addEventListener('click',function(){m.flyTo([P[i].lat,P[i].lng],8,{duration:1.2});mk[i].openPopup()})});
 })();
 </script>
 </body>

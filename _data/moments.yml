@@ -1,0 +1,11 @@
+# Photo gallery on the home page ("Moments").
+# Add a photo: upload it to images/moments/, then add an entry below.
+# size: big (2x2), tall (1x2), wide (2x1), or leave blank (1x1)
+- src: /images/graduation-1.jpg
+  caption: Crossing the stage. Master's done.
+  size: big
+- src: /images/graduation-2.jpg
+  caption: Graduation day at Lindsey Wilson
+  size: tall
+- src: /photo.jpg
+  caption: Hi, that's me

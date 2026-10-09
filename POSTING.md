@@ -23,3 +23,8 @@ Write your post here. Use ## for headings, **bold**, - for bullets.
 
 **Fix a post:** open it in `_posts`, tap the pencil, edit, commit.
 **Delete a post:** open it, ⋯ → Delete file.
+
+# Update the home page sections
+- **Moments (photos):** upload a photo to `images/moments/`, then add it to `_data/moments.yml`.
+- **Places (map pins):** edit `_data/places.yml` (name, note, lat, lng).
+- **Right now cards:** edit `_data/now.yml`.
