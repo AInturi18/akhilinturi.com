@@ -1,0 +1,14 @@
+# US states map: list states NOT visited yet. Remove a state once you've been there.
+not_visited:
+  - Alaska
+  - Hawaii
+  - North Dakota
+  - Iowa
+  - Maine
+  - Ohio
+  - Minnesota
+  - Montana
+  - Pennsylvania
+  - New Jersey
+  - Delaware
+  - Wisconsin
