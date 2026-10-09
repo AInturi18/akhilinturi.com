@@ -192,7 +192,7 @@ d.querySelector('.m-close').addEventListener('click',function(){d.close()});d.ad
 <script>
 (function(){if(!window.L)return;var P={{ site.data.places | jsonify }};
 var m=L.map('map',{scrollWheelZoom:false,worldCopyJump:true});
-L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',maxZoom:18}).addTo(m);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',maxZoom:19}).addTo(m);
 var ic=L.divIcon({className:'',html:'<div style="width:18px;height:18px;border-radius:50%;background:#0071e3;border:3px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.35)"></div>',iconSize:[18,18],iconAnchor:[9,9]});
 var mk=P.map(function(p){return L.marker([p.lat,p.lng],{icon:ic}).addTo(m).bindPopup('<b>'+p.name+'</b>'+p.note)});
 m.fitBounds(L.latLngBounds(P.map(function(p){return[p.lat,p.lng]})).pad(.25));
