@@ -2,6 +2,7 @@
 layout: post
 title: "Why I built a fiber link health monitor"
 date: 2026-10-06 08:20:00 -0500
+image: /images/covers/dashboard.svg
 category: Projects
 description: Turning OTDR exports into a pass/fail dashboard with Python, Flask, SQLite, and React.
 ---

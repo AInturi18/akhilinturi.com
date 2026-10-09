@@ -2,7 +2,7 @@
 layout: none
 title: Blog
 permalink: /blog/
-description: Notes on hyperscale data centers, fiber, networking, certifications, career, and life from Akhil Inturi.
+description: Notes on hyperscale data centers, fiber, networking, career, and life from Akhil Inturi.
 ---
 <!doctype html>
 <html lang="en">
@@ -12,89 +12,96 @@ description: Notes on hyperscale data centers, fiber, networking, certifications
 <title>Blog · Akhil Inturi</title>
 <meta name="description" content="{{ page.description | default: page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
 <meta property="og:title" content="{{ page.title | default: site.title }}">
-<meta property="og:description" content="{{ page.description | default: page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
+<meta property="og:description" content="{{ page.description | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
+<meta property="og:image" content="{{ site.url }}{{ page.image | default: '/photo.jpg' }}">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-<meta property="og:image" content="{{ site.url }}/photo.jpg">
 <link rel="alternate" type="application/atom+xml" title="Akhil Inturi" href="/feed.xml">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230b1020'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='28' font-weight='700' text-anchor='middle' fill='%2322d3ee'%3EAI%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23000'/%3E%3Ctext x='32' y='43' font-family='Helvetica,Arial' font-size='30' font-weight='700' text-anchor='middle' fill='%23fff'%3EAI%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <nav id="nav">
   <div class="wrap">
-    <a class="logo" href="/"><span>~/</span>akhil-inturi</a>
+    <a class="logo" href="/"><img src="/photo.jpg" alt="" width="26" height="26">Akhil Inturi</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="links">Menu</button>
     <div class="links" id="links">
-      <a href="/#experience">Experience</a>
+      <a href="/#work">Work</a>
       <a href="/#projects">Projects</a>
+      <a href="/#education">Education</a>
       <a href="/blog/" class="active">Blog</a>
-      <a href="/Akhil_Inturi_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a href="/Akhil_Inturi_Resume.pdf" target="_blank" rel="noopener">Résumé</a>
       <a href="/#contact">Contact</a>
     </div>
   </div>
 </nav>
 <main id="main">
-<section style="border-top:0;padding-top:64px">
-  <div class="wrap">
-    <div class="label">// blog</div>
-    <h2>Notes, lessons &amp; updates</h2>
-    <p style="color:var(--muted);max-width:620px;margin:-14px 0 28px">Field lessons from hyperscale data centers, networking study notes, career updates, and whatever else I'm working on.</p>
 
+<section style="padding-top:64px">
+  <div class="wrap">
+    <div class="center"><h1 class="headline">Blog.</h1><p class="sub">Field notes, projects, and life updates.</p></div>
     {% assign cats = site.posts | map: "category" | compact | uniq | sort %}
     <div class="filters" id="filters">
       <button type="button" data-cat="all" aria-pressed="true">All</button>
       {% for c in cats %}<button type="button" data-cat="{{ c }}" aria-pressed="false">{{ c }}</button>
       {% endfor %}
     </div>
-
-    <div class="posts" id="posts">
+    <div class="cards" id="posts">
       {% assign pinned = site.posts | where: "pinned", true %}{% assign rest = site.posts | where_exp: "p", "p.pinned != true" %}{% assign shown = pinned | concat: rest %}
-      {% for post in shown %}
-      <a class="post-item" href="{{ post.url }}" data-cat="{{ post.category }}">
-        <div class="pmeta"><span>{{ post.date | date: "%b %-d, %Y" }}</span>{% if post.pinned %}<span class="cat" style="color:var(--accent)">📌 Pinned</span>{% endif %}{% if post.category %}<span class="cat">{{ post.category }}</span>{% endif %}</div>
-        <h3>{{ post.title }}</h3>
-        <p>{{ post.description | default: post.excerpt | strip_html | truncate: 180 }}</p>
+      {% for post in shown %}{% if forloop.first %}{% assign feature = true %}{% else %}{% assign feature = false %}{% endif %}
+      <a class="card{% if feature %} feature{% endif %}" href="{{ post.url }}" data-cat="{{ post.category }}">
+        <div class="c-img"><img src="{{ post.image | default: '/images/covers/fiber.svg' }}" alt="" loading="lazy"></div>
+        <div class="c-body">
+          <div class="c-meta">{% if post.pinned %}<span class="pin">Pinned</span>{% endif %}<span>{{ post.category }}</span><span>{{ post.date | date: "%b %Y" }}</span></div>
+          <h3>{{ post.title }}</h3>
+        </div>
       </a>
       {% endfor %}
     </div>
-    {% if site.posts.size == 0 %}<p style="color:var(--muted)">First post coming soon.</p>{% endif %}
   </div>
 </section>
 </main>
 <footer>
-  © {{ site.time | date: "%Y" }} Akhil Inturi · <a href="/blog/">Blog</a> · <a href="/feed.xml">RSS</a> · <a href="https://www.linkedin.com/in/akhil-inturi-b5ba2619a/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/AInturi18" target="_blank" rel="noopener">GitHub</a>
+  <div class="wrap">
+    <span>© {{ site.time | date: "%Y" }} Akhil Inturi · Irving, TX</span>
+    <span><a href="/blog/">Blog</a> · <a href="https://www.linkedin.com/in/akhil-inturi-b5ba2619a/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/AInturi18" target="_blank" rel="noopener">GitHub</a> · <a href="/feed.xml">RSS</a></span>
+  </div>
 </footer>
-<button class="totop" type="button" aria-label="Back to top">↑</button>
+<dialog id="modal" aria-labelledby="m-title"><button class="m-close" type="button" aria-label="Close">✕</button><div id="m-content"></div></dialog>
 <script>
 (function(){
   var nav=document.getElementById('nav'),btn=nav.querySelector('.menu-btn');
   btn.addEventListener('click',function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o);btn.textContent=o?'Close':'Menu'});
   nav.querySelectorAll('.links a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.textContent='Menu'})});
-  var top=document.querySelector('.totop');
-  addEventListener('scroll',function(){top.classList.toggle('show',scrollY>700)},{passive:true});
-  top.addEventListener('click',function(){scrollTo({top:0,behavior:'smooth'})});
+  var dlg=document.getElementById('modal'),mc=document.getElementById('m-content');
+  document.querySelectorAll('[data-modal]').forEach(function(t){t.addEventListener('click',function(){
+    var tpl=document.getElementById(t.dataset.modal);if(!tpl)return;
+    mc.innerHTML='';mc.appendChild(tpl.content.cloneNode(true));
+    if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');
+  })});
+  dlg.querySelector('.m-close').addEventListener('click',function(){dlg.close()});
+  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
   var cp=document.getElementById('cp');
   if(cp)cp.addEventListener('click',function(){var t='ainturi18@gmail.com';(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){cp.textContent='Copied ✓';setTimeout(function(){cp.textContent='Copy email'},1600)}).catch(function(){var r=document.createRange();r.selectNodeContents(document.getElementById('em'));var s=getSelection();s.removeAllRanges();s.addRange(r)})});
-  if('IntersectionObserver' in window){
-    var map={};nav.querySelectorAll('.links a[href^="/#"]').forEach(function(a){map[a.getAttribute('href').slice(2)]=a});
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){var a=map[e.target.id];if(a&&e.isIntersecting){for(var k in map)map[k].classList.remove('active');a.classList.add('active')}})},{rootMargin:'-45% 0px -50% 0px'});
-    Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el)});
+  if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var els=document.querySelectorAll('.rv');
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('pre');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el){var r=el.getBoundingClientRect();if(r.top>innerHeight){el.classList.add('pre');io.observe(el)}});
   }
+  var map={};nav.querySelectorAll('.links a[href^="/#"]').forEach(function(a){map[a.getAttribute('href').slice(2)]=a});
+  if('IntersectionObserver' in window){var so=new IntersectionObserver(function(es){es.forEach(function(e){var a=map[e.target.id];if(a&&e.isIntersecting){for(var k in map)map[k].classList.remove('active');a.classList.add('active')}})},{rootMargin:'-45% 0px -50% 0px'});
+  Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el)so.observe(el)})}
 })();
 </script>
 <script>
 (function(){
-  var btns=document.querySelectorAll('#filters button'),items=document.querySelectorAll('#posts .post-item');
-  function apply(cat){
-    btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.cat===cat?'true':'false')});
-    items.forEach(function(i){i.hidden=!(cat==='all'||i.dataset.cat===cat)});
-  }
-  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.cat);history.replaceState(null,'',b.dataset.cat==='all'?'#':'#'+encodeURIComponent(b.dataset.cat))})});
-  var h=decodeURIComponent(location.hash.slice(1));if(h)apply(h);
+  var btns=document.querySelectorAll('#filters button'),items=document.querySelectorAll('#posts .card');
+  function apply(cat){btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.cat===cat?'true':'false')});items.forEach(function(i){i.hidden=!(cat==='all'||i.dataset.cat===cat)})}
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.cat)})});
 })();
 </script>
 </body>

@@ -2,6 +2,7 @@
 layout: post
 title: "Hello, world: why I started this site"
 date: 2026-10-06 08:00:00 -0500
+image: /images/covers/hello.svg
 category: Updates
 description: A quick intro to who I am, what I do in hyperscale data centers, and what I'll be writing about here.
 ---

@@ -2,6 +2,7 @@
 layout: post
 title: "What 150+ hyperscale deployments taught me about clean turnover"
 date: 2026-10-06 08:10:00 -0500
+image: /images/covers/racks.svg
 category: Data Center
 description: The habits that keep a data center connectivity build on track from EDP review to NOC sign-off.
 ---
